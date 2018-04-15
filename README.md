@@ -1,12 +1,7 @@
 # Readme
 
-Peter Banfi - Blog
-
-## H2
-## 3
-1. This is how you can run this project
-
-### H4
+## Peter Banfi - Blog
+### 1. This is how you can run this project
 in root folder (**/Blog-Project**)-> __nodemon start__
 then cd FrontEnd, cd blog (**/Blog-Project/FrontEnd/blog**)-> __npm start__
 __félkövér szöveg__
