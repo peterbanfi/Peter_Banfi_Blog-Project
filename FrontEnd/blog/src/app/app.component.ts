@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
+import { HttpClient } from 'selenium-webdriver/http';
+import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,47 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  adat: object = {
+    id: "",
+    userName: "",
+    email: "",
+  }
+  datas: any;
+
+
+  constructor(public http: Http) {
+    this.getAll();
+  }
+
+  errorHandling(res) {
+    res = JSON.parse(res['_body']);
+    if (res.error) {
+      console.error('API error:' + res.error);
+    }
+    else {
+      this.datas = res;
+    }
+  }
+
+  getAll() {
+    this.http.get('http://localhost:3000/blog').subscribe(
+      data => {
+        this.errorHandling(data);
+        console.log(data);
+      });
+  }
+
+  create() {
+    this.http.post('http://localhost:3000/blog/', this.adat).subscribe(
+      data => {
+        this.errorHandling(data);
+      });
+  }
+
+  /*   update() {
+      this.http.put(`http://localhost:3000/blog/${this.modal['id']}`, this.modal)
+        .subscribe(data => {
+          this.errorHandling(data);
+        });
+    } */
 }

@@ -9,14 +9,23 @@ const fs = require('fs')
 const https = require('https');
 const cors = require('cors')
 
+const postRouter = require('./BackEnd/routes/post.route');
+const app = express();
+
 //cors for angular
 const corsOptions = {
     origin: 'http://localhost:3000/blog',
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
 
-const postRouter = require('./BackEnd/routes/post.route');
-const app = express();
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "http://localhost:4200");
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+
+
 
 // Connect to MongoDB
 mongoose.connect(db.uri, db.options).then(
