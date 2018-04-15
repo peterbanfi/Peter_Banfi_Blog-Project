@@ -5,16 +5,15 @@ const PostSchema = new mongoose.Schema({
      type: mongoose.Schema.Types.ObjectId,
      default: new mongoose.Types.ObjectId()
    },*/
-  type: {
-    type: String,
-    enum: ['Html', 'Css', 'JavaScript'],
-    required: true
-  },
-  title: {
+  userName: {
     type: String,
     required: true
   },
-  content: {
+  email: {
+    type: String,
+    required: true
+  },
+  password: {
     type: String,
     required: true
   },

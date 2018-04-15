@@ -6,6 +6,7 @@ module.exports = {
     Post.find({}, (err, post) => {
       if (err) {
         res.send(err)
+        console.log(err)
       }
       res.json(post)
     })
@@ -15,6 +16,7 @@ module.exports = {
     Post.findById(req.params.id, (err, post) => {
       if (err) {
         res.send(err)
+        console.log(err)
       }
       res.json(post)
     })
@@ -24,6 +26,7 @@ module.exports = {
     Post.create(req.body, (err, post) => {
       if (err) {
         res.send(err)
+        console.log(err)
       }
       res.json(post)
     })
@@ -34,6 +37,7 @@ module.exports = {
     Post.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
       if (err) {
         res.send(err)
+        console.log(err)
       }
       res.json(post)
     })
@@ -43,6 +47,7 @@ module.exports = {
     Post.findByIdAndRemove(req.params.id, (err, post) => {
       if (err) {
         res.send(err)
+        console.log(err)
       }
       res.json(post)
     })

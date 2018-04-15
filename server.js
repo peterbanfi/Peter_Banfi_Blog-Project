@@ -7,11 +7,16 @@ const helmet = require('helmet')
 const morgan = require('morgan')
 const fs = require('fs')
 const https = require('https');
-//const http = require('http');
+const cors = require('cors')
 
-const postRouter = require('./BackEnd/routes/post.route')
-const app = express()
+//cors for angular
+const corsOptions = {
+    origin: 'http://localhost:3000/blog',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
+}
 
+const postRouter = require('./BackEnd/routes/post.route');
+const app = express();
 
 // Connect to MongoDB
 mongoose.connect(db.uri, db.options).then(
@@ -23,12 +28,6 @@ mongoose.connect(db.uri, db.options).then(
     }
 )
 
-// Get view File Path
-/*function view (path) {
-  return __dirname + '/views/' + path
-}*/
-
-// Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
     extended: false
 }))
@@ -46,31 +45,8 @@ app.use(morgan('dev', {
 // basic secure
 app.use(helmet())
 
-// Start Browser-Sync
-
-//  if (app.get('env') === 'development') {
-//  const browserSync = require('browser-sync')
-//    const config = {
-//  files: ['views/**/*.html'],
-//    logLevel: 'info',
-//      logSnippet: false,
-//  reloadDelay: 3000,
-//    reloadOnRestart: true
-//    }
-//const bs = browserSync(config)
-//  app.use(require('connect-browser-sync')(bs))
-//  }
-
 // Post aPI route, home page
 app.use('/blog', postRouter)
-
-// use https cert - git bash-t használj
-// openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -days 365
-/* const httpsOptions = {
-  key: fs.readFileSync('./sslcert/key.pem', 'utf8'),
-  cert: fs.readFileSync('./sslcert/cert.pem', 'utf8'),
-  passphrase: 'YR_noderestapi_01'
-}; */
 
 // Start server
 /* const server = https.createServer(httpsOptions, app)
@@ -79,3 +55,4 @@ server.listen(3000, function () {
 }); */
 
 app.listen('3000');
+app.use(cors(corsOptions));

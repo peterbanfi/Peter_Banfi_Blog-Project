@@ -29,14 +29,22 @@
   },
   "homepage": "https://github.com/peterbanfi/Peter_Banfi_Blog-Project#readme",
   "devDependencies": {
+    "@angular/cli": "^1.7.4",
     "body-parser": "^1.18.2",
-    "eslint": "^4.9.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-import": "^2.11.0",
     "express": "^4.16.3",
     "helmet": "^3.12.0",
-    "mongodb": "^3.0.4",
+    "mongodb": "^3.0.6",
     "mongoose": "^5.0.14",
     "morgan": "^1.9.0"
+  },
+  "dependencies": {
+    "blog": "0.0.3-1",
+    "bootstrap": "^4.1.0",
+    "cors": "^2.8.4",
+    "jquery": "^3.3.1",
+    "pug": "^2.0.3"
   }
 }
