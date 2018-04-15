@@ -16,4 +16,11 @@ html
       li
         h2
           a(target="_blank" rel="noopener" href="https://blog.angular.io/") Angular blog
-    input(type="button", value="getAll" '(click)'="getAll()")
+    hr
+    input.btn.btn-dark(type="button", value="getAll" '(click)'="getAll()")
+    //input.btn.btn-dark(type="button", value="update" '(click)'="update()")
+    //input(type="text" name="id" id="id" disabled , [(ngModel)]="modal.id")
+    input.form-control(type="text" name="userName" id="userName" ,[(ngModel)]="adat.userName" placeholder="user name")
+    input.form-control(type="text" name="email" id="email" ,[(ngModel)]="adat.email" placeholder="email")
+    input.form-control(type="password" name="password" id="password" ,[(ngModel)]="adat.password" placeholder="password")
+    input.btn.btn-dark(type="button", value="create" '(click)'="create()")

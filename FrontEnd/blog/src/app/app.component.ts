@@ -13,6 +13,13 @@ export class AppComponent {
     id: "",
     userName: "",
     email: "",
+    password: "",
+  }
+  modal: object = {
+    id: "",
+    userName: "",
+    email: "",
+    password: "",
   }
   datas: any;
 
@@ -35,7 +42,6 @@ export class AppComponent {
     this.http.get('http://localhost:3000/blog').subscribe(
       data => {
         this.errorHandling(data);
-        console.log(data);
       });
   }
 
@@ -46,10 +52,10 @@ export class AppComponent {
       });
   }
 
-  /*   update() {
-      this.http.put(`http://localhost:3000/blog/${this.modal['id']}`, this.modal)
-        .subscribe(data => {
-          this.errorHandling(data);
-        });
-    } */
+  update() {
+    this.http.put(`http://localhost:3000/blog/${this.modal['id']}`, this.modal)
+      .subscribe(data => {
+        this.errorHandling(data);
+      });
+  }
 }

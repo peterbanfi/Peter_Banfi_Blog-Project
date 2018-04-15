@@ -1,14 +1,14 @@
 # Readme
 
-Ez egy readme file.
+Peter Banfi - Blog
 
 ## H2
+## 3
+1. This is how you can run this project
 
-Címsor 2.
-
-### H3
-
-Címsor 3.
+### H4
+in root folder (**/Blog-Project**)-> __nodemon start__
+then cd FrontEnd, cd blog (**/Blog-Project/FrontEnd/blog**)-> __npm start__
 __félkövér szöveg__
 _dőlt szöveg_
 

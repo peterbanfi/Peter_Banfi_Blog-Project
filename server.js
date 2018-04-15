@@ -25,6 +25,9 @@ app.use(function (req, res, next) {
     next();
 });
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'pug');
 
 
 // Connect to MongoDB
@@ -50,6 +53,9 @@ app.use(morgan('dev', {
         flags: 'a'
     })
 }))
+
+//app.use(express.static(path.join(__dirname, 'node_modules')));
+app.use('/blog', express.static(__dirname + '/blog'))
 
 // basic secure
 app.use(helmet())
