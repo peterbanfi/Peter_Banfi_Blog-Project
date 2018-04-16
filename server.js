@@ -9,7 +9,7 @@ const fs = require('fs')
 const https = require('https');
 const cors = require('cors')
 
-const postRouter = require('./BackEnd/routes/post.route');
+const blogRouter = require('./BackEnd/routes/blog.route');
 const app = express();
 
 //cors for angular
@@ -24,6 +24,8 @@ app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Headers", "Content-Type");
     next();
 });
+
+//app.use(express.static(path.join(__dirname, 'public')));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -54,14 +56,14 @@ app.use(morgan('dev', {
     })
 }))
 
-//app.use(express.static(path.join(__dirname, 'node_modules')));
-app.use('/blog', express.static(__dirname + '/blog'))
+
+//app.use('/', express.static(__dirname + 'node_modules'))
 
 // basic secure
 app.use(helmet())
 
 // Post aPI route, home page
-app.use('/blog', postRouter)
+app.use('/blog', blogRouter)
 
 // Start server
 /* const server = https.createServer(httpsOptions, app)

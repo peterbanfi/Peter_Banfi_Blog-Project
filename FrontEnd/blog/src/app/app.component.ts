@@ -3,6 +3,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
 import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.pug',

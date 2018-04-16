@@ -1,9 +1,9 @@
-const Post = require('../models/post.model')
+const Blog = require('../models/blog.model')
 
 module.exports = {
   //getAll()
   list: (req, res) => {
-    Post.find({}, (err, post) => {
+    Blog.find({}, (err, post) => {
       if (err) {
         res.send(err)
         console.log(err)
@@ -13,7 +13,7 @@ module.exports = {
   },
 
   find: (req, res) => {
-    Post.findById(req.params.id, (err, post) => {
+    Blog.findById(req.params.id, (err, post) => {
       if (err) {
         res.send(err)
         console.log(err)
@@ -23,7 +23,7 @@ module.exports = {
   },
 
   create: (req, res) => {
-    Post.create(req.body, (err, post) => {
+    Blog.create(req.body, (err, post) => {
       if (err) {
         res.send(err)
         console.log(err)
@@ -34,7 +34,7 @@ module.exports = {
 
   update: (req, res) => {
     req.body.updatedAt = new Date().toDateString();
-    Post.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+    Blog.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
       if (err) {
         res.send(err)
         console.log(err)
@@ -44,7 +44,7 @@ module.exports = {
   },
 
   remove: (req, res) => {
-    Post.findByIdAndRemove(req.params.id, (err, post) => {
+    Blog.findByIdAndRemove(req.params.id, (err, post) => {
       if (err) {
         res.send(err)
         console.log(err)
