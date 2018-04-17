@@ -36,13 +36,6 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.navbar-light.bg-light
           i.fas.fa-sign-in-alt
 
 router-outlet
-input.btn.btn-dark(type="button", value="getAll" '(click)'="getAll()")
-//input.btn.btn-dark(type="button", value="update" '(click)'="update()")
-//input(type="text" name="id" id="id" disabled , [(ngModel)]="modal.id")
-input.form-control(type="text" name="userName" id="userName" ,[(ngModel)]="adat.userName" placeholder="user name")
-input.form-control(type="text" name="email" id="email" ,[(ngModel)]="adat.email" placeholder="email")
-input.form-control(type="password" name="password" id="password" ,[(ngModel)]="adat.password" placeholder="password")
-input.btn.btn-dark(type="button", value="create" '(click)'="create()")
 // Modal
 #exampleModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
   .modal-dialog(role="document")
@@ -52,16 +45,20 @@ input.btn.btn-dark(type="button", value="create" '(click)'="create()")
         button.close(type="button" data-dismiss="modal" aria-label="Close")
           span(aria-hidden="true") ×
       .modal-body
-        .input-group
-          .input-group-prepend
-            span.input-group-text
-              span.far.fa-user(aria-hidden="true")
-          input.form-control(type="text" name="logName" id="logName" placeholder="Username")
-          br
-          .input-group-prepend
-            span.input-group-text
-              span.fas.fa-key(aria-hidden="true")
-          input.form-control(type="password" name="logPass" id="logPass" placeholder="Password")
-        a(href="http://") Not a member yet? Click here to registrate!
+        form
+          .form-group
+            .input-group
+              .input-group-prepend
+                span.input-group-text
+                  span.far.fa-user(aria-hidden="true")
+              input.form-control(type="text" name="logName" id="logName" placeholder="Username" required)
+              br
+              .input-group-prepend
+                span.input-group-text
+                  span.fas.fa-key(aria-hidden="true")
+              input.form-control(type="password" name="logPass" id="logPass" placeholder="Password" required)
+        a.nav-link(routerLink="registration" routerLinkActive="active" data-dismiss="modal" aria-hidden="true") Not a member yet? Click here to registrate!
       .modal-footer
-        button.btn.btn-outline-dark(type="button") Sign in
+        button.btn.btn-outline-dark(type="button" data-dismiss="modal" aria-hidden="true") Sign in
+
+//footer

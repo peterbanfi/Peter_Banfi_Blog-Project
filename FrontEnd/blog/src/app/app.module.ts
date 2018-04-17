@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ApiComponent } from './api/api.component';
 import { ConnectionComponent } from './connection/connection.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 
@@ -23,7 +24,8 @@ import { ConnectionComponent } from './connection/connection.component';
     AboutComponent,
     HomeComponent,
     ApiComponent,
-    ConnectionComponent
+    ConnectionComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

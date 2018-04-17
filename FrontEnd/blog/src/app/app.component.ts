@@ -46,13 +46,6 @@ export class AppComponent {
       });
   }
 
-  create() {
-    this.http.post('http://localhost:3000/blog/', this.adat).subscribe(
-      data => {
-        this.errorHandling(data);
-      });
-  }
-
   update() {
     this.http.put(`http://localhost:3000/blog/${this.modal['id']}`, this.modal)
       .subscribe(data => {
