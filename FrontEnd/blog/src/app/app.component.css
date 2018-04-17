@@ -1,1 +1,7 @@
+.modal-footer {
+  justify-content: center;
+}
 
+#user {
+  color: white;
+}

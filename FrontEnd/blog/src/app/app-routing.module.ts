@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { ApiComponent } from './api/api.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BloggerComponent } from './blogger/blogger.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'api', component: ApiComponent },
   { path: 'connection', component: ConnectionComponent },
   { path: 'registration', component: RegistrationComponent },
+  { path: 'blog', component: BloggerComponent },
 
 ];
 

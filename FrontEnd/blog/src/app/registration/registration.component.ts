@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
-import { version } from 'punycode';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -22,7 +22,7 @@ export class RegistrationComponent implements OnInit {
     password: "",
   } */
   datas: any;
-  constructor(public http: Http) {
+  constructor(public http: Http, private router: Router) {
     this.getAll();
   }
 
@@ -54,6 +54,8 @@ export class RegistrationComponent implements OnInit {
     let verify2 = forValidName.includes("ng-valid");
     let verify3 = forValidPass.includes("ng-valid");
     let validFeed = document.getElementsByClassName('valid-feedback') as HTMLCollectionOf<HTMLElement>;
+    let element = document.getElementById('hOne');
+
     console.log(verify1, verify2, verify3);
     if (verify1 === true && verify2 === true && verify3 === true) {
       this.http.post('http://localhost:3000/blog/', this.adat).subscribe(
@@ -62,12 +64,15 @@ export class RegistrationComponent implements OnInit {
         });
       //valamiféle validáláshoz, de az elementtel va baja
       //document.querySelector('.valid-feedback').style.display = "block";
-      console.log(this.adat);
-      console.log('Thank you! You can log in now!');
+      window.location.reload();
+      alert('Thank you! You can log in now!');
+      this.router.navigate(['home']);
+
     } else {
       event.preventDefault();
       event.stopPropagation();
       console.log('Not valid data.');
+      alert('Not valid data.');
     }
 
     /*    window.addEventListener('load', function () {

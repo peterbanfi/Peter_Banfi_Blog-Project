@@ -1,7 +1,7 @@
 
 nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.navbar-light.bg-light
   .container
-    a.navbar-brand(href="#") Peter Banfi
+    a.navbar-brand(href="/home") Peter Banfi
     button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
@@ -31,7 +31,7 @@ nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.navbar-light.bg-light
             .dropdown-divider
             a.dropdown-item(href="#") Something else here
       form.form-inline.my-2.my-lg-0
-        a.nav-link(href="#") GO TO MY BLOG
+        a.nav-link#user
         button.btn.btn-outline-light(type="button" data-toggle="modal" data-target="#exampleModal")
           i.fas.fa-sign-in-alt
 
@@ -47,18 +47,28 @@ router-outlet
       .modal-body
         form
           .form-group
-            .input-group
-              .input-group-prepend
-                span.input-group-text
-                  span.far.fa-user(aria-hidden="true")
-              input.form-control(type="text" name="logName" id="logName" placeholder="Username" required)
-              br
-              .input-group-prepend
-                span.input-group-text
-                  span.fas.fa-key(aria-hidden="true")
-              input.form-control(type="password" name="logPass" id="logPass" placeholder="Password" required)
-        a.nav-link(routerLink="registration" routerLinkActive="active" data-dismiss="modal" aria-hidden="true") Not a member yet? Click here to registrate!
+            .form-row.justify-content-center
+              .col-md-8
+                label(for='logName') User name
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text
+                      span.far.fa-user(aria-hidden="true")
+                  input.form-control(type="text" name="logName" id="logName" placeholder="Username" required)
+            .form-row.justify-content-center
+              .col-md-8
+                label(for='logPass') Password
+                .input-group
+                  .input-group-prepend
+                    span.input-group-text
+                      span.fas.fa-key(aria-hidden="true")
+                  input.form-control(type="password" name="logPass" id="logPass" placeholder="Password" required)
+                  a.nav-link(routerLink="registration" routerLinkActive="active" data-dismiss="modal" aria-hidden="true") Not a member yet? Click here to sign up!
+            .form-row.justify-content-center
+              .col-md-8
+                button.btn.btn-outline-dark.btn-block(type="button" data-dismiss="modal" aria-hidden="true" '(click)'='signIn()') Sign in
       .modal-footer
-        button.btn.btn-outline-dark(type="button" data-dismiss="modal" aria-hidden="true") Sign in
+        p Peter Banfi &copy; 2018.
+        
 
 //footer

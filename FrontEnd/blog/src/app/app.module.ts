@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { ApiComponent } from './api/api.component';
 import { ConnectionComponent } from './connection/connection.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { BloggerComponent } from './blogger/blogger.component';
 
 
 
@@ -25,7 +26,8 @@ import { RegistrationComponent } from './registration/registration.component';
     HomeComponent,
     ApiComponent,
     ConnectionComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    BloggerComponent
   ],
   imports: [
     BrowserModule,
