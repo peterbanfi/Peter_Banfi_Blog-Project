@@ -1,2 +1,24 @@
-h1 Blog works!
 
+table.table.table-striped
+  thead
+    tr
+      th text
+
+  tbody
+    tr
+      td #
+      td
+        input.form-control(type="text" name="text" id="text" ,[(ngModel)]="adat.text")
+      td -
+      td -
+      td
+        .btn-group
+          button.btn.btn-success(type="button" ,(click)="create()") Create
+    tr(*ngFor="let x of datas")
+      td #
+      td {{x.text}}
+      td 
+        .btn-group
+          button.btn.btn-danger(type="button" ,(click)="deleteRow(x.id)") Delete
+          button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
+    
