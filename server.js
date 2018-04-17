@@ -10,6 +10,7 @@ const https = require('https');
 const cors = require('cors')
 
 const blogRouter = require('./BackEnd/routes/blog.route');
+const bloggerRouter = require('./BackEnd/routes/blogger.route');
 const app = express();
 
 //cors for angular
@@ -64,6 +65,7 @@ app.use(helmet())
 
 // Post aPI route, home page
 app.use('/blog', blogRouter)
+app.use('/blogger', bloggerRouter)
 
 // Start server
 /* const server = https.createServer(httpsOptions, app)

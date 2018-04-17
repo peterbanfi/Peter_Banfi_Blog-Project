@@ -37,7 +37,7 @@ export class AppComponent {
   }
 
   getAll() {
-    this.users = this.http.get('http://localhost:3000/blog').subscribe(
+    this.datas = this.http.get('http://localhost:3000/blog').subscribe(
       data => {
         this.errorHandling(data);
       });
@@ -47,12 +47,12 @@ export class AppComponent {
     let logName = document.getElementById('logName') as HTMLInputElement;
     let logPass = document.getElementById('logPass') as HTMLInputElement;
     let hello = document.getElementById('user') as HTMLInputElement;
-    console.log(this.users, logName.value, logPass.value);
-    for (let i = 0; i < this.users.length; i++) {
-      if (this.users[i].userName === logName.value && this.users[i].password === logPass.value) {
+    console.log(this.datas, logName.value, logPass.value);
+    for (let i = 0; i < this.datas.length; i++) {
+      if (this.datas[i].userName === logName.value && this.datas[i].password === logPass.value) {
         console.log('Access granted!');
         this.router.navigate(['blog']);
-        hello.innerHTML = `Hello, ${this.users[i].userName}!`;
+        hello.innerHTML = `Hello, ${this.datas[i].userName}!`;
         return;
       } else {
         console.log('Wrong username or password!');
