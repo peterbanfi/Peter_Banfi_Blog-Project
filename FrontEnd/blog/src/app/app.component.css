@@ -5,3 +5,8 @@
 #user {
   color: white;
 }
+
+.bg-dark-custom {
+  background-color: #343A40;
+  transition: background-color 1s;
+}

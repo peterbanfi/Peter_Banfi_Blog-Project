@@ -3,6 +3,7 @@ import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
 import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 import { Router } from "@angular/router";
+import { HostListener } from "@angular/core";
 
 
 @Component({
@@ -60,4 +61,16 @@ export class AppComponent {
 
     }
   }
+
+  //transparent navbar
+  @HostListener('window:scroll') onScroll() {
+    let navbar = document.querySelector('.bg-dark-custom') as HTMLElement
+    if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
+      navbar.style.backgroundColor = 'rgba(52, 58, 64, 0.6)';
+    } else {
+      navbar.style.backgroundColor = '#343A40';
+    }
+  };
+
+
 }

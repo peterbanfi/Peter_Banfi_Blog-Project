@@ -1,3 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Custom scrollbar */
+
+/* width */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+  background: #343A40;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0, 0, 0);
+}
+
 @media (max-width: 767.98px) {}

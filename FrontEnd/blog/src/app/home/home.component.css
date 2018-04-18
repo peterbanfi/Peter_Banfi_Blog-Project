@@ -1,0 +1,29 @@
+.links {
+  transition: font-size 1s;
+}
+
+.links:hover {
+  font-size: 110%;
+}
+
+.links>.fa-4x:hover {
+  color: rgb(31, 62, 94);
+}
+
+.fa-4x {
+  color: #343A40;
+  transition: color 1s;
+}
+
+.fa-question-circle {
+  margin-bottom: 30px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.what-is-this-page {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}

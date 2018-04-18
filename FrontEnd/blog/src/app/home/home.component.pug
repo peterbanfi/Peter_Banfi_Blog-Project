@@ -1,2 +1,58 @@
-.container
-  h1.text-center Home works!
+section.title
+  .jumbotron.jumbotron-fluid
+    .container
+      h1.display-4 Welcome to my page!
+      p.lead
+        | Let me introduced myself here
+
+section.what-is-this-page
+  .container
+    .row.align-items-center
+      .col-6.mx-auto.text-center
+        i.fas.fa-question-circle.fa-4x
+        h2 But what the Hell is this page exactly?
+      .col-6
+        .row
+          .col-6.text-center
+            a.links(href="/about")
+              i.fas.fa-user-circle.fa-4x
+            h3 About
+            p Here you can read about the author, about me!
+          .col-6.text-center
+            a.links(href="/knowledge")
+              i.fas.fa-graduation-cap.fa-4x
+            h3 Knowledge
+            p This is where I let you know what have I learnt in tha last few months. I've been busy!
+        .row
+          .col-6.text-center
+            a.links(href="/api")
+              i.fas.fa-cogs.fa-4x
+            h3 Rest API
+            p The "what's under the hood?" section. The exciting details about the Application Programming Interface. Here ya go, nerds!
+          .col-6.text-center
+            a.links(href="/connection")
+              i.far.fa-address-card.fa-4x
+            h3 Connection
+            p The title says it all. My connections. Yes, the real ones.
+
+section
+  #carouselExampleSlidesOnly.carousel.slide(data-ride='carousel')
+    .carousel-inner
+      .carousel-item.active
+        img.d-block.w-100(src='../../assets/img/carmack.png', alt='First slide')
+        .carousel-caption.d-none.d-md-block
+          h3 John Carmack
+      .carousel-item
+        img.d-block.w-100(src='../../assets/img/gates.png', alt='Second slide')
+        .carousel-caption.d-none.d-md-block
+          h3 Bill Gates
+      .carousel-item
+        img.d-block.w-100(src='../../assets/img/wozniak.png', alt='Third slide')
+        .carousel-caption.d-none.d-md-block
+          h3 Steve Wozniak
+      .carousel-item
+        img.d-block.w-100(src='../../assets/img/zuckerberg.png', alt='Mark Zuckerberg')
+        .carousel-caption.d-none.d-md-block
+          h3 Mark Zuckerberg
+
+
