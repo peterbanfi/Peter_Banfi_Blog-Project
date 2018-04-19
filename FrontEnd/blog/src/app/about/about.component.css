@@ -1,0 +1,27 @@
+.jumbotron {
+  margin-bottom: 0;
+}
+
+.my-header {
+  font-size: 4rem;
+}
+
+.my-header-white {
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+
+.my-budapest-image {
+  background-image: url('../../assets/img/budapest.jpg');
+  height: 80vh;
+}
+
+.my-place {
+  background-image: url('../../assets/img/beaverfieldmarketplace.jpg');
+  height: 90vh;
+}
+
+.my-i-miss-soton {
+  background-image: url('../../assets/img/southampton.jpg');
+  height: 90vh;
+}
