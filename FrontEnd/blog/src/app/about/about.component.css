@@ -2,6 +2,20 @@
   margin-bottom: 0;
 }
 
+.my-budapest-image {
+  background-image: url('../../assets/img/budapest.jpg');
+  height: 80vh;
+}
+
+.my-cv {
+  padding: 60px 0;
+}
+
+.download-cv {
+  margin-top: 30px;
+  border-radius: 50px;
+}
+
 .my-header {
   font-size: 4rem;
 }
@@ -9,11 +23,6 @@
 .my-header-white {
   color: white;
   text-shadow: 0 0 10px black;
-}
-
-.my-budapest-image {
-  background-image: url('../../assets/img/budapest.jpg');
-  height: 80vh;
 }
 
 .my-place {

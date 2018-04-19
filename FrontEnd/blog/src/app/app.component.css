@@ -11,12 +11,29 @@
   transition: background-color 1s;
 }
 
+.fa-arrow-up {
+  margin-top: 15px;
+  color: black;
+  transition: color .3s;
+}
+
+.fa-arrow-up:hover {
+  cursor: pointer;
+  color: #E9ECEF;
+}
+
 nav.bg-dark-custom:hover {
   background-color: #343A40;
 }
 
+.my-arrow-btn {
+  background: transparent;
+  -webkit-appearance: none;
+}
+
 .my-custom-links {
-  margin: 0 10px;
+  margin-top: 15px;
+  margin-right: 15px;
   color: black;
   transition: color 0.3s;
 }

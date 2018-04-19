@@ -74,10 +74,13 @@ router-outlet
 //footer
 footer.my-footer
   .container
-    .row
-      .col-6.text-center
+    .row.align-items-center
+      .col-4.text-center
         span.text-muted Peter Banfi &copy; 2018.
-      .col-6.text-center
+      .col-4.text-center
+        .my-arrow-btn(type="button" data-dismiss="modal" aria-hidden="true" '(click)'='backToTop()' data-toggle="tooltip" title="Back To Top")
+          i.fas.fa-arrow-up.fa-2x.my-arrow
+      .col-4.text-center
         a.my-custom-links.my-facebook(href="https://www.facebook.com/tylerriiserocks" data-toggle="tooltip" title="Facebook")
           i.fab.fa-facebook-square.fa-2x
         a.my-custom-links.my-github(href="https://github.com/peterbanfi" data-toggle="tooltip" title="Github")

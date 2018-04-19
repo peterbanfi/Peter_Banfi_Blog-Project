@@ -87,4 +87,16 @@ export class AppComponent {
 
   }
 
+  //Scrolling back to the top
+  backToTop() {
+    if (document.documentElement.scrollTop > 0) {
+      setTimeout(() => {
+        document.documentElement.scrollTop = document.documentElement.scrollTop - 126;
+        this.backToTop();
+      }, 10)
+    } else {
+      return;
+    }
+  }
+
 }
