@@ -1,5 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* fixed footer's height */
+
+body {
+  margin-bottom: 60px;
+  /* Margin bottom by footer height */
+}
+
 /* Custom scrollbar */
 
 /* width */

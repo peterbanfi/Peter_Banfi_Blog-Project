@@ -1,5 +1,5 @@
 .links {
-  transition: font-size 1s;
+  transition: font-size 0.6s;
 }
 
 .links:hover {
@@ -7,12 +7,12 @@
 }
 
 .links>.fa-4x:hover {
-  color: rgb(31, 62, 94);
+  color: rgb(0, 0, 0);
 }
 
 .fa-4x {
   color: #343A40;
-  transition: color 1s;
+  transition: color 0.6s;
 }
 
 .fa-question-circle {
@@ -23,7 +23,7 @@
   margin-bottom: 0;
 }
 
-.what-is-this-page {
+.my-what-is-this-page {
   padding-top: 60px;
   padding-bottom: 60px;
 }

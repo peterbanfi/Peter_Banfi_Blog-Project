@@ -7,20 +7,20 @@ nav.navbar.sticky-top.navbar-dark.bg-dark-custom.navbar-expand-lg
     #navbarSupportedContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item
-          a.nav-link(routerLink="home" routerLinkActive="active")
+          a.nav-link(routerLink="home" routerLinkActive="active" data-toggle="tooltip" title="Home")
             i.fas.fa-home 
             span.sr-only (current)
         li.nav-item
-          a.nav-link(routerLink="about" routerLinkActive="active")
+          a.nav-link(routerLink="about" routerLinkActive="active" data-toggle="tooltip" title="About")
             i.fas.fa-user-circle
         li.nav-item
-          a.nav-link(routerLink="knowledge" routerLinkActive="active")
+          a.nav-link(routerLink="knowledge" routerLinkActive="active" data-toggle="tooltip" title="Knowledge")
             i.fas.fa-graduation-cap
         li.nav-item
-          a.nav-link(routerLink="api" routerLinkActive="active")
+          a.nav-link(routerLink="api" routerLinkActive="active" data-toggle="tooltip" title="Rest API")
             i.fas.fa-cogs
         li.nav-item
-          a.nav-link(routerLink="connection" routerLinkActive="active")
+          a.nav-link(routerLink="connection" routerLinkActive="active" data-toggle="tooltip" title="Connection")
             i.far.fa-address-card
         li.nav-item.dropdown
           a#navbarDropdown.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
@@ -72,3 +72,15 @@ router-outlet
         
 
 //footer
+footer.my-footer
+  .container
+    .row
+      .col-6.text-center
+        span.text-muted Peter Banfi &copy; 2018.
+      .col-6.text-center
+        a.my-custom-links.my-facebook(href="https://www.facebook.com/tylerriiserocks" data-toggle="tooltip" title="Facebook")
+          i.fab.fa-facebook-square.fa-2x
+        a.my-custom-links.my-github(href="https://github.com/peterbanfi" data-toggle="tooltip" title="Github")
+          i.fab.fa-github.fa-2x
+        a.my-custom-links.my-instagram(href="https://www.instagram.com/iamtylerriise/" data-toggle="tooltip" title="Instagram")
+          i.fab.fa-instagram.fa-2x

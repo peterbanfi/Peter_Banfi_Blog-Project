@@ -20,6 +20,7 @@ export class AppComponent {
   }
   datas: any;
   users: any;
+  scrollPos: number;
 
 
 
@@ -65,12 +66,25 @@ export class AppComponent {
   //transparent navbar
   @HostListener('window:scroll') onScroll() {
     let navbar = document.querySelector('.bg-dark-custom') as HTMLElement
+    this.scrollPos = document.documentElement.scrollTop;
     if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
       navbar.style.backgroundColor = 'rgba(52, 58, 64, 0.6)';
     } else {
       navbar.style.backgroundColor = '#343A40';
     }
   };
+  //listening scroll pos
+  @HostListener('mousemove', ['$event'])
+  onMousemove(event: MouseEvent) {
+    let navbar = document.querySelector('.bg-dark-custom') as HTMLElement
+    if (this.scrollPos > 60) {
+      if (event.clientY <= 60) {
+        navbar.style.backgroundColor = '#343A40';
+      } else {
+        navbar.style.backgroundColor = 'rgba(52, 58, 64, 0.6)';
+      }
+    }
 
+  }
 
 }
