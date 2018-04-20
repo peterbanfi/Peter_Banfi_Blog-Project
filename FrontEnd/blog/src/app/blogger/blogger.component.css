@@ -1,0 +1,108 @@
+.my-bg {
+  background-image: url('../../assets/img/atlanta.jpg');
+  width: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
+}
+
+.my-camarilla {
+  position: absolute;
+  background-image: url('../../assets/img/camarilla.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 50vh;
+  top: -100%;
+  left: 30%;
+}
+
+.my-diablerie {
+  position: absolute;
+  background-image: url('../../assets/img/diablerie.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  top: -60%;
+  left: 30%;
+}
+
+.my-diablo {
+  position: absolute;
+  background-image: url('../../assets/img/diablo.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  top: -20%;
+  left: 30%;
+}
+
+.my-details {
+  border: 1px solid white;
+  border-radius: 20px;
+  padding: 10px 10px;
+}
+
+.my-fader {
+  background-attachment: fixed;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-color: rgba(66, 0, 0, 0.363);
+}
+
+.my-latex {
+  position: absolute;
+  background-image: url('../../assets/img/latex.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  left: 30%;
+}
+
+.my-riders {
+  position: absolute;
+  background-image: url('../../assets/img/riders.png');
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 40vh;
+  left: 30%;
+}
+
+.my-sponsors {
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  width: 11.5%;
+  height: 40vh;
+}
+
+.my-sponsor-table {
+  width: 10%;
+  border: none;
+  box-sizing: unset;
+}
+
+.my-sponsor-table td {
+  border: none;
+  height: 33vh;
+}
+
+.my-sponsor-table th {
+  border: none;
+}
+
+.my-sponsor-td {
+  width: 10%;
+  height: 20vh;
+}
+
+.my-table {
+  background-color: rgba(0, 0, 0, 0.548);
+  margin: 20px 20px;
+  padding: 0px 20px;
+  padding-top: 20px;
+  padding-bottom: 0px;
+  border: 1px solid white;
+}
+
+.my-title {
+  padding: 60px 0;
+}

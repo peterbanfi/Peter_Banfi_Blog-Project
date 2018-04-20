@@ -39,7 +39,7 @@ export class AppComponent {
   }
 
   getAll() {
-    this.datas = this.http.get('http://localhost:3000/blog').subscribe(
+    this.datas = this.http.get('http://localhost:8080/user/').subscribe(
       data => {
         this.errorHandling(data);
       });
@@ -49,18 +49,23 @@ export class AppComponent {
     let logName = document.getElementById('logName') as HTMLInputElement;
     let logPass = document.getElementById('logPass') as HTMLInputElement;
     let hello = document.getElementById('user') as HTMLInputElement;
-    console.log(this.datas, logName.value, logPass.value);
-    for (let i = 0; i < this.datas.length; i++) {
-      if (this.datas[i].userName === logName.value && this.datas[i].password === logPass.value) {
-        console.log('Access granted!');
-        this.router.navigate(['blog']);
-        hello.innerHTML = `Hello, ${this.datas[i].userName}!`;
-        return;
-      } else {
-        console.log('Wrong username or password!');
-      }
-
+    this.adat = {
+      username: logName.value,
+      password: logPass.value
     }
+    this.http.post('http://localhost:8080/user/login', this.adat).subscribe(
+      data => {
+        this.errorHandling(data);
+      });
+
+    /*LOGIN  
+    if () {
+       hello.innerHTML = `Hello, ${logName.value}!`;
+       this.router.navigate(['blog']);
+       console.log('Access granted!');
+     } if () {
+       console.log('Not valid data!');
+     } */
   }
 
   //transparent navbar
@@ -89,12 +94,24 @@ export class AppComponent {
 
   //Scrolling back to the top
   backToTop() {
-    if (document.documentElement.scrollTop > 0) {
+    if (document.documentElement.scrollTop > 800) {
       setTimeout(() => {
         document.documentElement.scrollTop = document.documentElement.scrollTop - 126;
         this.backToTop();
       }, 10)
-    } else {
+    } else if (document.documentElement.scrollTop > 400) {
+      setTimeout(() => {
+        document.documentElement.scrollTop = document.documentElement.scrollTop - 26;
+        this.backToTop();
+      }, 10)
+    } else if (document.documentElement.scrollTop > 0) {
+      setTimeout(() => {
+        document.documentElement.scrollTop = document.documentElement.scrollTop - 10;
+        this.backToTop();
+      }, 10)
+    }
+
+    else {
       return;
     }
   }

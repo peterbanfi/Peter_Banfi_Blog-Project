@@ -1,24 +1,68 @@
+.my-bg
+  .container-fluid.my-fader
+    .row
+      .table.my-sponsor-table
+        thead
+          tr
+            th
+        tbody
+          tr
+            td.my-sponsor-td
+              .my-sponsors
+                .my-latex
+          tr
+            td.my-sponsor-td
+              .my-sponsors
+                .my-riders
+          tr
+            td.my-sponsor-td
+              .my-sponsors
+                .my-diablo
+          tr
+            td.my-sponsor-td
+              .my-sponsors
+                .my-diablerie
+          tr
+            td.my-sponsor-td
+              .my-sponsors
+                .my-camarilla
+      .container
+        section.my-title
+          h1.text-center BLOG
+        section.my-table
+          table.table.table-striped
+            thead
+              tr
+                th ID
+                th User Name
+                th E-mail
+                th Updated at
+                th
 
-table.table.table-striped
-  thead
-    tr
-      th text
+            tbody
+              tr(*ngFor="let x of datas")
+                td #
+                td {{x.username}}
+                td {{x.email}}
+                td {{x.updatedAt}}
+                td
+                  .btn-group
+                    button.btn.btn-outline-danger(type="button" ,(click)="deleteRow(x.id)") Delete
+                    button.btn.btn-outline-primary(type='button', (click)="update(x)") Save changes
 
-  tbody
-    tr
-      td #
-      td
-        input.form-control(type="text" name="text" id="text" ,[(ngModel)]="adat.text")
-      td -
-      td -
-      td
-        .btn-group
-          button.btn.btn-success(type="button" ,(click)="create()") Create
-    tr(*ngFor="let x of datas")
-      td #
-      td {{x.text}}
-      td 
-        .btn-group
-          button.btn.btn-danger(type="button" ,(click)="deleteRow(x.id)") Delete
-          button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
-    
+
+        section.my-table.text-center(*ngFor="let x of datas")
+          .row
+            .col-3
+              .my-details
+                h1 {{x.username}}
+                p ID: {{x._id}}
+                p {{x.email}}
+                p {{x.updatedAt}}
+                .btn-group
+                  button.btn.btn-outline-danger(type="button" ,(click)="deleteRow(x._id)") Delete
+                  button.btn.btn-outline-primary(type='button', (click)="update(x._id)") Update
+            .col-9.my-details
+                h6.text-left {{x.posts}}
+          hr
+        

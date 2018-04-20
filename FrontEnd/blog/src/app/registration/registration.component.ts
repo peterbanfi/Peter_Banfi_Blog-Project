@@ -10,17 +10,10 @@ import { Router } from "@angular/router";
 })
 export class RegistrationComponent implements OnInit {
   adat: object = {
-    id: "",
-    userName: "",
+    username: "",
     email: "",
     password: "",
   }
-  /* modal: object = {
-    id: "",
-    userName: "",
-    email: "",
-    password: "",
-  } */
   datas: any;
   constructor(public http: Http, private router: Router) {
     this.getAll();
@@ -33,14 +26,16 @@ export class RegistrationComponent implements OnInit {
     res = JSON.parse(res['_body']);
     if (res.error) {
       console.error('API error:' + res.error);
+      return true;
     }
     else {
       this.datas = res;
+      return false;
     }
   }
 
   getAll() {
-    this.http.get('http://localhost:3000/blog').subscribe(
+    this.http.get('http://localhost:8080/user/').subscribe(
       data => {
         this.errorHandling(data);
       });
@@ -55,41 +50,26 @@ export class RegistrationComponent implements OnInit {
     let verify3 = forValidPass.includes("ng-valid");
     let validFeed = document.getElementsByClassName('valid-feedback') as HTMLCollectionOf<HTMLElement>;
     let element = document.getElementById('hOne');
+    let regName = document.getElementById('validationCustomUsername') as HTMLInputElement;
+    let regEmail = document.getElementById('validationCustom01') as HTMLInputElement;
+    let regPass = document.getElementById('validationCustom02') as HTMLInputElement;
+    this.adat = {
+      username: regName.value,
+      email: regEmail.value,
+      password: regPass.value
+    }
+    this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
+      data => {
+        this.errorHandling(data);
+      });
 
-    console.log(verify1, verify2, verify3);
-    if (verify1 === true && verify2 === true && verify3 === true) {
-      this.http.post('http://localhost:3000/blog/', this.adat).subscribe(
-        data => {
-          this.errorHandling(data);
-        });
-      //valamiféle validáláshoz, de az elementtel va baja
-      //document.querySelector('.valid-feedback').style.display = "block";
-      window.location.reload();
+    if (!this.errorHandling) {
+      console.log(this.adat);
+      console.log(verify1, verify2, verify3);
       alert('Thank you! You can log in now!');
       this.router.navigate(['home']);
-
     } else {
-      event.preventDefault();
-      event.stopPropagation();
-      console.log('Not valid data.');
       alert('Not valid data.');
     }
-
-    /*    window.addEventListener('load', function () {
-         // Fetch all the forms we want to apply custom Bootstrap validation styles to
-         var forms = document.getElementsByClassName('needs-validation');
-         // Loop over them and prevent submission
-         var validation = Array.prototype.filter.call(forms, function (form) {
-           form.addEventListener('submit', function (event) {
-             if (form.checkValidity() === false) {
-               event.preventDefault();
-               event.stopPropagation();
-             }
-             form.classList.add('was-validated');
-             alert('Thank you! You can log in now!');
-           }, false);
-         });
-       }, false);
-     }; */
   }
 }
