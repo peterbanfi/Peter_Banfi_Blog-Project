@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./connection.component.css']
 })
 export class ConnectionComponent implements OnInit {
-
-  constructor() { }
+  lat: number = 47.4614391;
+  lng: number = 19.05303779999997;
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
+
 
 }

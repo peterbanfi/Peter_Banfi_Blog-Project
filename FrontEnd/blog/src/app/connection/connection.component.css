@@ -1,0 +1,82 @@
+agm-map {
+  height: 300px;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background: rgba(128, 0, 128, 0.219);
+}
+
+.my-bg {
+  background-image: url('../../assets/img/lines.svg');
+  width: 100%;
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+.my-canvas {
+  background: rgba(128, 0, 128, 0.219);
+}
+
+.my-facebook {
+  height: 13vh;
+  width: 50%;
+  background-image: url('../../assets/img/facebook.png');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  position: absolute;
+  left: 25%;
+}
+
+.my-github {
+  height: 13vh;
+  width: 50%;
+  background-image: url('../../assets/img/github.svg');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  position: absolute;
+  left: 40%;
+}
+
+.my-instagram {
+  height: 13vh;
+  width: 50%;
+  background-image: url('../../assets/img/instagram.png');
+  background-repeat: no-repeat;
+  background-size: 50%;
+  position: absolute;
+  left: 40%;
+}
+
+.my-logos {
+  margin-top: 20px;
+  padding-bottom: 20px;
+  transition: width 1s;
+}
+
+.my-logos:hover {
+  width: 55%;
+}
+
+.my-map {
+  margin-top: 60px;
+  padding-bottom: 60px;
+}
+
+#map {
+  height: 300px;
+  width: 100%;
+}
+
+.my-social {
+  height: 18vh;
+  padding-top: 3%;
+}
+
+.my-title {
+  padding: 40px 0;
+}
+
+textarea {
+  background: rgba(255, 255, 255, 0.466);
+}

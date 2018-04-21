@@ -26,6 +26,7 @@ export class AppComponent {
 
   constructor(public http: Http, private router: Router) {
     this.getAll();
+    this.validation();
   }
 
   errorHandling(res) {
@@ -66,6 +67,24 @@ export class AppComponent {
      } if () {
        console.log('Not valid data!');
      } */
+  }
+
+  validation() {
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      let forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      let validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+          return true;
+        }, false);
+      });
+    }, false);
   }
 
   //transparent navbar

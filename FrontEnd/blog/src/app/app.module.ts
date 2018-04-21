@@ -15,6 +15,8 @@ import { ConnectionComponent } from './connection/connection.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { BloggerComponent } from './blogger/blogger.component';
 
+import { AgmCoreModule } from '@agm/core';
+
 
 
 
@@ -33,7 +35,10 @@ import { BloggerComponent } from './blogger/blogger.component';
     BrowserModule,
     HttpModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAmtR9kCIIX5O-bGKMQTvl-_a3ec8y30gk'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

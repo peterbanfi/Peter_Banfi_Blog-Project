@@ -1,2 +1,59 @@
-.container
-  h1.text-center Connection works!
+.jumbotron-fluid
+  .jumbotron
+    .container
+      h1.display-4 Let's be connected
+.container-fluid.my-bg
+  .container.my-canvas
+    section.my-social
+      .row.text-center
+        .col-md-4.mb-3
+          h6 Find me on Facebook:
+            a(href="https://www.facebook.com/tylerriiserocks")
+              .my-facebook.my-logos
+        .col-md-4.mb-3
+          h6 Follow me on Github:
+            a(href="https://github.com/peterbanfi")
+              .my-github.my-logos
+        .col-md-4.mb-3
+          h6 and Instagram:
+            a(href="https://www.instagram.com/iamtylerriise/")
+              .my-instagram.my-logos
+    section
+      h3.my-title.text-center Send me a feedback!
+      form.needs-validation(novalidate='' action='mailto:p6t6rbanfi@gmail.com?Subject=Feedback', method='post' enctype="text/plain")
+        .form-row
+          .col-md-6.mb-4
+            label(for='validationCustom02') Username
+            input#validationCustom02.form-control(type='text', name='Username', placeholder='Username', required='')
+            .invalid-feedback
+              | Please tell me your username.
+          .col-md-6.mb-4
+            label(for='validationCustomUsername') E-mail
+            .input-group
+              .input-group-prepend
+                span#inputGroupPrepend.input-group-text @
+              input#validationCustomUsername.form-control(type='text', name='Email', placeholder='Email', aria-describedby='inputGroupPrepend', required='')
+              .invalid-feedback
+                | I need your e-mail address!
+        .form-row
+          .col-md-12.mb-6
+            label(for='validationCustom03') Write a message:
+            textarea#validationCustom03.form-control(type='text' name="message", cols="30", rows="10" required='')
+            .invalid-feedback
+              | Please provide a message.
+
+        .form-group
+          .form-check
+            input#invalidCheck.form-check-input(type='checkbox', value='', required='')
+            label.form-check-label(for='invalidCheck')
+              | Agree to terms and conditions
+            .invalid-feedback
+              | You must agree before submitting.
+        input.btn.btn-outline-primary(type='submit' value="Submit form") 
+
+
+    section.my-map
+      h3.my-title.text-center Or you can find me here:
+      #map
+        agm-map([latitude]='lat', [longitude]='lng')
+          agm-marker([latitude]='lat', [longitude]='lng')

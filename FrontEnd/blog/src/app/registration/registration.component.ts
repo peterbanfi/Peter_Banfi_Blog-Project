@@ -15,9 +15,13 @@ export class RegistrationComponent implements OnInit {
     password: "",
   }
   datas: any;
+
+
   constructor(public http: Http, private router: Router) {
     this.getAll();
+    this.validation();
   }
+
 
   ngOnInit() {
   }
@@ -42,14 +46,6 @@ export class RegistrationComponent implements OnInit {
   }
 
   create() {
-    let forValidEmail = document.getElementById('validationCustom01').className;
-    let forValidPass = document.getElementById('validationCustom02').className;
-    let forValidName = document.getElementById('validationCustomUsername').className;
-    let verify1 = forValidEmail.includes("ng-valid");
-    let verify2 = forValidName.includes("ng-valid");
-    let verify3 = forValidPass.includes("ng-valid");
-    let validFeed = document.getElementsByClassName('valid-feedback') as HTMLCollectionOf<HTMLElement>;
-    let element = document.getElementById('hOne');
     let regName = document.getElementById('validationCustomUsername') as HTMLInputElement;
     let regEmail = document.getElementById('validationCustom01') as HTMLInputElement;
     let regPass = document.getElementById('validationCustom02') as HTMLInputElement;
@@ -58,18 +54,37 @@ export class RegistrationComponent implements OnInit {
       email: regEmail.value,
       password: regPass.value
     }
-    this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
+    /* this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
       data => {
         this.errorHandling(data);
-      });
-
-    if (!this.errorHandling) {
-      console.log(this.adat);
-      console.log(verify1, verify2, verify3);
-      alert('Thank you! You can log in now!');
-      this.router.navigate(['home']);
+      }); */
+    this.validation();
+    if (!this.validation) {
+      console.log('correct datas');
+      //alert('Thank you! You can log in now!');
+      //this.router.navigate(['home']);
     } else {
-      alert('Not valid data.');
+      //alert('Not valid data.');
+      console.log('incorrect datas');
     }
+  }
+
+  validation() {
+    window.addEventListener('load', function () {
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      let forms = document.getElementsByClassName('needs-validation');
+      // Loop over them and prevent submission
+      let validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+
+
   }
 }
