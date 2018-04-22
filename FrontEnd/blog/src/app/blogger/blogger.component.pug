@@ -29,40 +29,47 @@
       .container
         section.my-title
           h1.text-center BLOG
-        section.my-table
-          table.table.table-striped
-            thead
-              tr
-                th ID
-                th User Name
-                th E-mail
-                th Updated at
-                th
-
-            tbody
-              tr(*ngFor="let x of datas")
-                td #
-                td {{x.username}}
-                td {{x.email}}
-                td {{x.updatedAt}}
-                td
-                  .btn-group
-                    button.btn.btn-outline-danger(type="button" ,(click)="deleteRow(x.id)") Delete
-                    button.btn.btn-outline-primary(type='button', (click)="update(x)") Save changes
-
-
         section.my-table.text-center(*ngFor="let x of datas")
           .row
             .col-3
               .my-details
                 h1 {{x.username}}
-                p ID: {{x._id}}
+                p ID:
+                  br
+                  em {{x._id}}
                 p {{x.email}}
+                p {{x.createdAt}}
                 p {{x.updatedAt}}
                 .btn-group
                   button.btn.btn-outline-danger(type="button" ,(click)="deleteRow(x._id)") Delete
-                  button.btn.btn-outline-primary(type='button', (click)="update(x._id)") Update
+                  button.btn.btn-outline-primary(type='button', data-toggle='modal', data-target='#exampleModalBlog' ,
+          (click)="modalChange(x._id)") Update
             .col-9.my-details
                 h6.text-left {{x.posts}}
           hr
-        
+
+          // Modal
+#exampleModalBlog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalBlogLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalBlogLabel.modal-title Update
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        label(for="id") ID
+        input.form-control(type="text" name="id" id="id" disabled ,[(ngModel)]="modal._id" value="{{modal._id}}")
+        br
+        label(for="username") Username
+        input.form-control(type="text" name="username" id="username" disabled ,[(ngModel)]="modal.username")
+        br
+        label(for="email") E-mail
+        input.form-control(type="text" name="email" id="email" disabled ,[(ngModel)]="modal.email")
+        br
+        label(for="posts") Blogpost
+        textarea.form-control(type="text" name="posts" id="posts" ,[(ngModel)]="modal.posts")
+        br
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
+          

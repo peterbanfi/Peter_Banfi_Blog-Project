@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
 import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
+import { AsyncPipe } from '@angular/common';
 @Component({
   selector: 'app-blogger',
   templateUrl: './blogger.component.pug',
@@ -9,6 +10,13 @@ import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 })
 export class BloggerComponent implements OnInit {
   adat: object = {
+    _id: "",
+    userName: "",
+    email: "",
+    password: "",
+    posts: ""
+  }
+  modal: object = {
     _id: "",
     userName: "",
     email: "",
@@ -46,23 +54,31 @@ export class BloggerComponent implements OnInit {
         });
     } */
 
-  update(id) {
-    this.http.put(`http://localhost:8080/user/update/${id}`, this.adat)
+  update() {
+    this.http.put(`http://localhost:8080/user/update/${this.modal['_id']}`, this.modal)
       .subscribe(data => {
         this.errorHandling(data);
       });
+    location.reload();
     /*     this.http.get(`http://localhost:8080/user/getOne/${id}`)
           .subscribe(data => {
             this.errorHandling(data);
           }); */
-    console.log(id);
+  }
+
+  modalChange(id) {
+    let choosen = this.datas.filter(item => item._id == id)[0];
+    this.modal = Object.assign({}, choosen);
   }
 
   deleteRow(id) {
-    this.http.delete(`http://localhost:8080/user/remove/${id}`)
-      .subscribe(data => {
-        this.errorHandling(data);
-      });
+    if (confirm(`Are you sure to delete ${id}?`)) {
+      this.http.delete(`http://localhost:8080/user/remove/${id}`)
+        .subscribe(data => {
+          this.errorHandling(data);
+        });
+      location.reload();
+    }
   }
 
 }

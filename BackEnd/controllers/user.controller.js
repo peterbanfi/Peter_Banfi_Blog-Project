@@ -47,27 +47,16 @@ module.exports = {
     },
 
     update: (req, res) => {
-        if (req.body._id) {
-            delete req.body._id;
-        }
-        User.findByIdAndUpdate(req.params.id, req.body, {
-                new: true
-            })
-            .then(function (user) {
-                res.status(200).json(user);
-            })
-            .catch(function (err) {
-                return res.status(500).send(err);
-            })
-        /*       req.body.updatedAt = new Date().toDateString();
-              User.findByIdAndUpdate(req.params._id, req.body, (err, post) => {
-                  if (err) {
-                      res.send(err)
-                      console.log(err)
-                  }
-                  res.json(post)
-              }) */
+        req.body.updatedAt = new Date().toLocaleDateString();
+        User.findByIdAndUpdate(req.params.id, req.body, (err, post) => {
+            if (err) {
+                res.send(err)
+                console.log(err)
+            }
+            res.json(post)
+        })
     },
+
 
     remove: (req, res) => {
         User.findByIdAndRemove(req.params.id)

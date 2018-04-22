@@ -17,7 +17,7 @@ const userSchema = mongoose.Schema({
              }, */
         posts: {
             type: String,
-            default: 'User has no any post yet.'
+            default: 'User has no any posts yet.'
         }
     }, {
         timestamps: true

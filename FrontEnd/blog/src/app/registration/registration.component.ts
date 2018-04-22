@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
 import { Router } from "@angular/router";
+import { EmailValidator } from '@angular/forms';
+import 'rxjs/Rx';
+
 
 @Component({
   selector: 'app-registration',
@@ -54,19 +57,15 @@ export class RegistrationComponent implements OnInit {
       email: regEmail.value,
       password: regPass.value
     }
-    /* this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
+    this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
       data => {
         this.errorHandling(data);
-      }); */
-    this.validation();
-    if (!this.validation) {
-      console.log('correct datas');
-      //alert('Thank you! You can log in now!');
-      //this.router.navigate(['home']);
-    } else {
-      //alert('Not valid data.');
-      console.log('incorrect datas');
-    }
+      })
+
+    //this.http.post('http://localhost:8080/user/register', this.adat).map(res => res.json());
+
+    alert('Thank you! You can log in now!');
+    this.router.navigate(['home']);
   }
 
   validation() {
