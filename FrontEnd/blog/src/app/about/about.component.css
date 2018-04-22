@@ -7,6 +7,10 @@
   height: 80vh;
 }
 
+#my-certificate-img {
+  width: 100%;
+}
+
 .my-cv {
   padding: 60px 0;
 }
