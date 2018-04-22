@@ -5,31 +5,31 @@ then cd FrontEnd, cd blog (**/Blog-Project/FrontEnd/blog**)-> __npm start__
 
 ### 2. File structure
 
--__blog-project__
-    -server.js
-    -__BackEnd__
-        -bin
-        -config
-        -controllers
-        -models
-        -routes
-    -__FrontEnd__
-        -blog
-            -e2e
-            -node_modules
-            -src
-                -app
-                    -about
-                    -api
-                    -blogger
-                    -connection
-                    -home
-                    -knowledge
-                    -registration
-                -assets
-                    -files
-                    -img
-    -node_modules
+* __blog-project__
+    * server.js
+    * __BackEnd__
+        * bin
+        * config
+        * controllers
+        * models
+        * routes
+    * __FrontEnd__
+        * blog
+            * e2e
+            * node_modules
+            * src
+                * app
+                    * about
+                    * api
+                    * blogger
+                    * connection
+                    * home
+                    * knowledge
+                    * registration
+                * assets
+                    * files
+                    * img
+    * node_modules
 
 ### 3. About
 This is a NodeJs-Angular-Express-Pug-MongoDB 1 week project. I tried to achieve a useful rest API with a nice front-end. I achieved the 'generate a million bug in a week' achievement that's for sure.
