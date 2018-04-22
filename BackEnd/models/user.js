@@ -11,10 +11,10 @@ const userSchema = mongoose.Schema({
             required: true,
             unique: true
         },
-        /*      blogposts: {
-                 type: mongoose.Schema.Types.ObjectId,
-                 ref: 'Blogpost'
-             }, */
+        blogposts: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Users'
+        }],
         posts: {
             type: String,
             default: 'User has no any posts yet.'
@@ -25,9 +25,25 @@ const userSchema = mongoose.Schema({
 
 )
 
+/* const blogSchema = mongoose.Schema({
+    author: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Blogposts'
+    },
+    title: String,
+    content: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Blogposts'
+    }]
+}); */
+
+//const Users = mongoose.model('Users', userSchema);
+
+
 userSchema.plugin(passportLocalMongoose, {
     maxAttempts: 5,
     hashField: 'password'
 });
 
 module.exports = mongoose.model('User', userSchema)
+//module.exports = mongoose.model('Blogposts', blogSchema)

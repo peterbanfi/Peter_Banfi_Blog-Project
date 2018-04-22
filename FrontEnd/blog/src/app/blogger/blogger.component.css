@@ -1,7 +1,11 @@
+#ads {
+  padding-left: 5%;
+}
+
 .my-bg {
   background-image: url('../../assets/img/atlanta.jpg');
   width: 100%;
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-attachment: fixed;
   color: white;
 }
@@ -74,7 +78,14 @@
   height: 40vh;
 }
 
+@media (max-width: 1270px) {
+  .my-sponsors {
+    display: none;
+  }
+}
+
 .my-sponsor-table {
+  margin-top: 10%;
   width: 10%;
   border: none;
   box-sizing: unset;

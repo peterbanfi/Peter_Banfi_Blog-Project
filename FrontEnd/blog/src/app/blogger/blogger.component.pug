@@ -4,7 +4,7 @@
       .table.my-sponsor-table
         thead
           tr
-            th
+            th#ads Ads: 
         tbody
           tr
             td.my-sponsor-td
@@ -44,11 +44,13 @@
                   button.btn.btn-outline-danger(type="button" ,(click)="deleteRow(x._id)") Delete
                   button.btn.btn-outline-primary(type='button', data-toggle='modal', data-target='#exampleModalBlog' ,
           (click)="modalChange(x._id)") Update
+                  button.btn.btn-outline-success(type='button', data-toggle='modal', data-target='#exampleModalCreate' ,
+          (click)="modalChange(x._id)") Create
             .col-9.my-details
                 h6.text-left {{x.posts}}
           hr
 
-          // Modal
+// update
 #exampleModalBlog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalBlogLabel', aria-hidden='true')
   .modal-dialog(role='document')
     .modal-content
@@ -61,10 +63,10 @@
         input.form-control(type="text" name="id" id="id" disabled ,[(ngModel)]="modal._id" value="{{modal._id}}")
         br
         label(for="username") Username
-        input.form-control(type="text" name="username" id="username" disabled ,[(ngModel)]="modal.username")
+        input.form-control(type="text" name="username" id="username" ,[(ngModel)]="modal.username")
         br
         label(for="email") E-mail
-        input.form-control(type="text" name="email" id="email" disabled ,[(ngModel)]="modal.email")
+        input.form-control(type="text" name="email" id="email" ,[(ngModel)]="modal.email")
         br
         label(for="posts") Blogpost
         textarea.form-control(type="text" name="posts" id="posts" ,[(ngModel)]="modal.posts")
@@ -72,4 +74,29 @@
       .modal-footer
         button.btn.btn-secondary(type='button', data-dismiss='modal') Close
         button.btn.btn-primary(type='button' data-dismiss='modal', (click)="update()") Save changes
+
+// create blog posts
+#exampleModalCreate.modal.fade(tabindex='-1', role='dialog', aria-labelledby='exampleModalCreateLabel', aria-hidden='true')
+  .modal-dialog(role='document')
+    .modal-content
+      .modal-header
+        h5#exampleModalCreateLabel.modal-title Update
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden='true') ×
+      .modal-body
+        label(for="id-2") ID
+        input.form-control(type="text" name="id-2" id="id-2" disabled ,[(ngModel)]="modal._id" value="{{modal._id}}")
+        br
+        label(for="username-2") Username
+        input.form-control(type="text" name="username-2" id="username-2" ,[(ngModel)]="modal.username")
+        br
+        label(for="email-2") E-mail
+        input.form-control(type="text" name="email-2" id="email-2" ,[(ngModel)]="modal.email")
+        br
+        label(for="posts-2") Blogpost
+        textarea.form-control(type="text" name="posts-2" id="posts-2" ,[(ngModel)]="modal.posts")
+        br
+      .modal-footer
+        button.btn.btn-secondary(type='button', data-dismiss='modal') Close
+        button.btn.btn-primary(type='button' data-dismiss='modal', (click)="createBlog()") Save changes
           

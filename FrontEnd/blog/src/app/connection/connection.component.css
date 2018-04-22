@@ -4,7 +4,6 @@ agm-map {
 
 .jumbotron {
   margin-bottom: 0;
-  background: rgba(128, 0, 128, 0.219);
 }
 
 .my-bg {
@@ -12,10 +11,6 @@ agm-map {
   width: 100%;
   background-repeat: repeat;
   background-attachment: fixed;
-}
-
-.my-canvas {
-  background: rgba(128, 0, 128, 0.219);
 }
 
 .my-facebook {

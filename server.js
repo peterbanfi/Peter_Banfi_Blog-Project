@@ -87,14 +87,15 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(User.createStrategy());
+//passport.use(Blogposts.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Post aPI route, home page
 //User route
 app.use('/user', userRouter);
-app.use('/blog', blogRouter)
-app.use('/blogger', bloggerRouter)
+//app.use('/blog', blogRouter)
+//app.use('/blogger', bloggerRouter)
 
 
 app.use(cors());

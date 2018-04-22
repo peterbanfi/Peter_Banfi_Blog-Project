@@ -60,10 +60,6 @@ export class BloggerComponent implements OnInit {
         this.errorHandling(data);
       });
     location.reload();
-    /*     this.http.get(`http://localhost:8080/user/getOne/${id}`)
-          .subscribe(data => {
-            this.errorHandling(data);
-          }); */
   }
 
   modalChange(id) {

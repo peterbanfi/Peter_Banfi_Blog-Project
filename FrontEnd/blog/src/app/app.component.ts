@@ -4,6 +4,7 @@ import { HttpClient } from 'selenium-webdriver/http';
 import { checkAndUpdateElementDynamic } from '@angular/core/src/view/element';
 import { Router } from "@angular/router";
 import { HostListener } from "@angular/core";
+import 'rxjs/Rx';
 
 
 @Component({
@@ -21,6 +22,7 @@ export class AppComponent {
   datas: any;
   users: any;
   scrollPos: number;
+  logged: boolean = false;
 
 
 
@@ -54,19 +56,35 @@ export class AppComponent {
       username: logName.value,
       password: logPass.value
     }
-    this.http.post('http://localhost:8080/user/login', this.adat).subscribe(
-      data => {
-        this.errorHandling(data);
-      });
+    if (logName.value == "" || logPass.value == "") {
+      alert('Wrong E-mail or Password!');
+    }
+    else {
+      if (this.logged == true) {
+        alert('You already logged in!');
+      } else {
+        this.http.post('http://localhost:8080/user/login', this.adat).subscribe(
+          data => {
 
-    /*LOGIN  
-    if () {
-       hello.innerHTML = `Hello, ${logName.value}!`;
-       this.router.navigate(['blog']);
-       console.log('Access granted!');
-     } if () {
-       console.log('Not valid data!');
-     } */
+            let enter = '{"succes":"Login"}';
+            let goAway = "Unauthorized";
+            if (data['_body'] == enter) {
+              this.router.navigate(['blog']);
+              console.log('enter!');
+              hello.innerHTML = `Hello, ${logName.value}!`;
+              this.logged = true;
+              //});
+
+            } else {
+              this.errorHandling(data);
+              alert('You already logged in!');
+            };
+            //console.log(data['_body']);
+
+          });
+
+      }
+    }
   }
 
   validation() {

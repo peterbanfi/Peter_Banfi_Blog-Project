@@ -29,7 +29,7 @@ nav.navbar.sticky-top.navbar-dark.bg-dark-custom.navbar-expand-lg
             a.dropdown-item(href="/blog") Go To The Blog
       form.form-inline.my-2.my-lg-0
         a.nav-link#user
-        button.btn.btn-outline-light(type="button" data-toggle="modal" data-target="#exampleModal")
+        button.btn.btn-outline-light(type="button"  data-toggle="modal" data-target="#exampleModal")
           i.fas.fa-sign-in-alt
 
 router-outlet
@@ -63,13 +63,13 @@ router-outlet
                   a.nav-link(routerLink="registration" routerLinkActive="active" data-dismiss="modal" aria-hidden="true") Not a member yet? Click here to sign up!
             .form-row.justify-content-center
               .col-md-8
-                button.btn.btn-outline-dark.btn-block(type="button" data-dismiss="modal" aria-hidden="true" '(click)'='signIn()') Sign in
+                button.btn.btn-outline-dark.btn-block#signInBtn(type="button"  data-dismiss="modal" aria-hidden="true" '(click)'='signIn()') Sign in
       .modal-footer
         p Peter Banfi &copy; 2018.
         
 
 //footer
-footer.my-footer
+footer.my-footer#my-footer-load
   .container
     .row.align-items-center
       .col-4.text-center

@@ -1,15 +1,17 @@
 const User = require('../models/user');
+const Post = require('../models/blogposts');
 
 module.exports = {
 
     //getAll()
     getAll: (req, res) => {
         User.find({}, (err, user) => {
-            if (err) {
-                res.send(err)
-            }
-            res.json(user)
-        })
+                if (err) {
+                    res.send(err)
+                }
+                res.json(user)
+            })
+            .populate('Blogposts')
     },
 
     getOne: (req, res) => {
@@ -57,6 +59,24 @@ module.exports = {
         })
     },
 
+    /* createPosts: (req, res, next) => {
+        Post.createPosts(new Post({
+            author: req.body.author,
+            title: req.body.title,
+            content: req.body.content
+        }), req.body.password, (err) => {
+            if (err) {
+                res.json({
+                    error: err
+                })
+            }
+            res.json({
+                success: 'Registration complete.'
+            })
+            //res.redirect('localhost:4200/home')
+        })
+    }, */
+
 
     remove: (req, res) => {
         User.findByIdAndRemove(req.params.id)
@@ -73,12 +93,15 @@ module.exports = {
         res.json({
             succes: 'Login'
         })
-        //res.redirect('localhost:4200/blog')
+        //.redirect('localhost:4200/blog');
     },
 
     logout: (req, res) => {
         req.logout();
-        res.redirect('/')
+        res.json({
+            succes: 'Logged out!'
+        })
+        //res.redirect('/')
     }
 
 
