@@ -36,6 +36,8 @@ This is a NodeJs-Angular-Express-Pug-MongoDB 1 week project. I tried to achieve 
 
 ### 4. Documentation
 
+* [NodeJS](https://nodejs.org/en/)
+* [ExpressJS](https://expressjs.com/)
 * [Angular](https://angular.io/)
 * [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 * [Mongoose](http://mongoosejs.com/)

@@ -57,15 +57,16 @@ export class RegistrationComponent implements OnInit {
       email: regEmail.value,
       password: regPass.value
     }
-    this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
-      data => {
-        this.errorHandling(data);
-      })
-
-    //this.http.post('http://localhost:8080/user/register', this.adat).map(res => res.json());
-
-    alert('Thank you! You can log in now!');
-    this.router.navigate(['home']);
+    if (regName.value == "" || regEmail.value == "" || regPass.value == "") {
+      alert('Not valid data!');
+    } else {
+      this.http.post('http://localhost:8080/user/register', this.adat).subscribe(
+        data => {
+          this.errorHandling(data);
+        })
+      alert('Thank you! You can log in now!');
+      this.router.navigate(['home']);
+    }
   }
 
   validation() {

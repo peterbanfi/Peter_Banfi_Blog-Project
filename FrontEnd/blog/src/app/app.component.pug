@@ -1,7 +1,7 @@
 
 nav.navbar.sticky-top.navbar-dark.bg-dark-custom.navbar-expand-lg
   .container
-    a.navbar-brand(href="/home") Peter Banfi
+    a.navbar-brand(routerLink="home") Peter Banfi
     button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation")
       span.navbar-toggler-icon
     #navbarSupportedContent.collapse.navbar-collapse
@@ -26,7 +26,7 @@ nav.navbar.sticky-top.navbar-dark.bg-dark-custom.navbar-expand-lg
           a#navbarDropdown.nav-link.dropdown-toggle(href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
             | More
           .dropdown-menu(aria-labelledby="navbarDropdown")
-            a.dropdown-item(href="/blog") Go To The Blog
+            a.dropdown-item(routerLink="blog") Go To The Blog
       form.form-inline.my-2.my-lg-0
         a.nav-link#user
         button.btn.btn-outline-light(type="button"  data-toggle="modal" data-target="#exampleModal")

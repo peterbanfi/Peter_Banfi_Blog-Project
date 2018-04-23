@@ -1,6 +1,146 @@
 section
   .jumbotron.jumbotron-fluid
     .container
-      h1.display-4 Rest API
+      .row
+        .col-6
+          h1.display-4 Rest API
+          p.lead
+            | The Dark Side of Programming.
+        .col-6
+          .my-vader
 .container
-  section
+  section.my-server
+    h1.text-center server.js
+    hr
+    h6 The first 21 rows of the server.js file:
+    pre
+      | const express = require('express');
+      | const path = require('path');
+      | const bodyParser = require('body-parser');
+      | const mongoose = require('mongoose');
+      | const db = require('./BackEnd/config/database');
+      | const helmet = require('helmet');
+      | const morgan = require('morgan');
+      | const fs = require('fs');
+      | const https = require('https');
+      | const cors = require('cors');
+      | const passport = require('passport');
+      | const cookieParser = require('cookie-parser');
+      | const session = require('express-session');
+      | const rfs = require('rotating-file-stream');
+      | const blogRouter = require('./BackEnd/routes/blog.route');
+      | const bloggerRouter = require('./BackEnd/routes/blogger.route');
+      | const User = require('./BackEnd/models/user.js');
+      | const userRouter = require('./BackEnd/routes/user.route');
+      | const logDirectory = path.join(__dirname, 'log');
+      | const port = process.env.PORT || 8080;
+      | const app = express();
+    hr
+    h6 This is how I connect to the Mongo database:
+    pre 
+      |  mongoose.connect(db.uri, db.options).then(
+      |   () => {{ '{' }}
+      |       console.log('MongoDB connected.')
+      |   },
+      |   err => {{ '{' }}
+      |       console.error('MongoDB error.:' + err)
+      |   }
+      | )
+    hr
+    h6 Logging:
+    pre
+      |  fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+      |  let accessLogStream = rfs('access.log', {{ '{' }}
+      |      interval: '1d',
+      |      path: logDirectory,  
+      |  })
+      |  app.use(morgan('combined', {{ '{' }}
+      |      stream: accessLogStream,
+      |      skip: (req, res) => res.statusCode < 400
+      |  }));
+    hr
+    h6 THE MAGIC:
+    pre
+      | app.listen(port);
+  section.my-db
+    h1.text-center database.js
+    hr
+    h6 The Mongo database's options:
+    pre
+      |  const options = {{ '{' }}
+      |    connectTimeoutMS: 2000,
+      |    autoIndex: false, // Don't build indexes
+      |    reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+      |    reconnectInterval: 500, // Reconnect every 500ms
+      |    poolSize: 10, // Maintain up to 10 socket connections
+      |    bufferMaxEntries: 0
+      |  }
+  section.my-route
+    h1.text-center user.route.js
+    hr
+    h6 My routes:
+    pre
+      |  userRouter.get('/', User.getUser);
+      |  userRouter.get('/getAll', User.getAll);
+      |  userRouter.get('/getOne/:id', User.getOne);
+      |  userRouter.delete('/remove/:id', User.remove);
+      |  userRouter.put('/update/:id', User.update);
+      |  userRouter.post('/register', User.register);
+      |  userRouter.post('/login', passport.authenticate('local'), User.login);
+      |  userRouter.get('/logout', User.logout);
+  section.my-controller
+    h1.text-center user.controller.js
+    hr
+    h6 Get one user from the database:
+    pre
+      |  getOne: (req, res) => {{ '{' }}
+      |      User.findById(req.params.id)
+      |          .then(userFound => {{ '{' }}
+      |              if (!userFound) {{ '{' }}
+      |                  return res.status(404).end();
+      |              }
+      |              return res.status(200).json(userFound)
+      |          })
+      |          .catch(err => next(err));
+      |  },
+    hr
+    h6 Remove user from database:
+    pre
+      |  remove: (req, res) => {{ '{' }}
+      |      User.findByIdAndRemove(req.params.id)
+      |          .then(() => {{ '{' }}     
+      |              res.status(204).end();
+      |          })
+      |          .catch(err => {{ '{' }}
+      |              return res.status(200).send(err)
+      |          });
+      |  },
+  section.my-user
+    h1.text-center user.js
+    hr
+    h6 My user scheme:
+    pre
+      |  const userSchema = mongoose.Schema({{ '{' }}
+      |          username: {{ '{' }}
+      |              type: String,
+      |              required: true
+      |          },
+      |          email: {{ '{' }}
+      |              type: String,
+      |              required: true,
+      |              unique: true
+      |          },
+      |          blogposts: [{{ '{' }}
+      |              type: mongoose.Schema.Types.ObjectId,
+      |              ref: 'Users'
+      |          }],
+      |          posts: {{ '{' }}
+      |              type: String,
+      |              default: 'User has no any posts yet.'
+      |          }
+      |      }, {{ '{' }}
+      |          timestamps: true
+      |      }
+      |  )
+
+
