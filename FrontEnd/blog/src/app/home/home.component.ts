@@ -11,4 +11,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
+  aboutThis() {
+    setInterval(() => document.querySelector('#my-about').innerHTML += (Math.floor(Math.random() * 2)), 100);
+
+  }
 }
